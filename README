@@ -1,0 +1,12 @@
+Build the image with:
+
+sudo docker build -t bcl/centos7-haskell .
+
+Run the container with:
+
+sudo docker run -it --name=A_UNIQUE_NAME -v $PWD:/working/:Z --env LOCAL_UID=`id -u` bcl/centos7-haskell bash
+
+The /working/ directory inside the container will be mounted to the current
+directory and the 'user' user id will match your UID.
+
+Run it with --env LOCAL_USERNAME=root and it will run as root instead.
